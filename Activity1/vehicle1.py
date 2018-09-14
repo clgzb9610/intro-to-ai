@@ -18,5 +18,7 @@ def convertDistToSpeed(distance):
 
 bttn = ev3.Button()
 while not bttn.any():
+    print(myBot.readUltra())
     speed = convertDistToSpeed(myBot.readUltra())
+    print(speed)
     myBot.forward(speed)
