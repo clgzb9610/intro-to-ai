@@ -29,6 +29,7 @@ while not bttn.any():
     leftDist, rightDist = readLeftAndRight(myBot)
     leftSpeed = convertDistToSpeed(leftDist)
     rightSpeed = convertDistToSpeed(rightDist)
-    myBot.curve(leftSpeed, rightSpeed)
+    myBot.turnLeft(leftSpeed)
+    myBot.turnRight(rightSpeed)
 
 myBot.stop()
