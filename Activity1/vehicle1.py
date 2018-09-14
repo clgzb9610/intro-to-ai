@@ -6,5 +6,17 @@ myBot.setGyroSensor('in1')
 myBot.setColorSensor('in3')
 myBot.setUltrasonicSensor('in4')
 
-myBot.setMotorPort('outC')
-rightM = ev3.LargeMotor('outB')
+# myBot.setMotorPort('leftMotor', 'outB')
+# myBot.setMotorPort('rightMotor', 'outD')
+
+def convertDistToSpeed(distance):
+    if distance > 100:
+        return 1
+    else:
+        return (distance - 50) /50
+
+
+bttn = ev3.Button()
+while not bttn.any():
+    speed = convertDistToSpeed(myBot.readUltra())
+    myBot.forward(speed)
