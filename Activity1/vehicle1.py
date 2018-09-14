@@ -13,11 +13,12 @@ def convertDistToSpeed(distance):
     if distance > 25:
         return 1
     else:
-        return (distance - 25) /25
+        return (distance - 25) / 25.0
 
 
 bttn = ev3.Button()
 while not bttn.any():
     speed = convertDistToSpeed(myBot.readUltra())
-    print(myBot.readUltra(), "with speed of", speed)
     myBot.forward(speed)
+
+myBot.stop()
