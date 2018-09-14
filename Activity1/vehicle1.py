@@ -10,15 +10,14 @@ myBot.setUltrasonicSensor('in4')
 # myBot.setMotorPort('rightMotor', 'outD')
 
 def convertDistToSpeed(distance):
-    if distance > 100:
+    if distance > 25:
         return 1
     else:
-        return (distance - 50) /50
+        return (distance - 25) /25
 
 
 bttn = ev3.Button()
 while not bttn.any():
-    print(myBot.readUltra())
     speed = convertDistToSpeed(myBot.readUltra())
-    print(speed)
+    print(myBot.readUltra(), "with speed of", speed)
     myBot.forward(speed)
