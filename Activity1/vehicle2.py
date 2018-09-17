@@ -26,10 +26,11 @@ def readLeftAndRight(robot):
 
 bttn = ev3.Button()
 while not bttn.any():
+    myBot.forward(1.0)
     leftDist, rightDist = readLeftAndRight(myBot)
     leftSpeed = convertDistToSpeed(leftDist)
     rightSpeed = convertDistToSpeed(rightDist)
-    myBot.turnLeft(leftSpeed)
-    myBot.turnRight(rightSpeed)
+    myBot.curve(leftSpeed, 0.3)
+    myBot.curve(0.3, rightSpeed)
 
 myBot.stop()
